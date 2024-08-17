@@ -13,8 +13,8 @@ const bodyParser = require("body-parser");
 var app = express();
 
 // view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views")); //views 폴더의
+app.set("view engine", "pug"); //pug 템플릿 엔진을 사용한다.
 
 app.use(logger("dev"));
 app.use(express.json());
