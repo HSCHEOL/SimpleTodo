@@ -1,8 +1,33 @@
+html {
+  height: 100%;
+}
+
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: "red";
+  background-color: #dddddd;
+  height: 100%;
+}
+
+#main-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 a {
   color: #00b7ff;
+}
+
+#Todolist {
+  background-color: red;
+  width: 50em;
+  height: 60em;
+}
+
+#Sublist {
+  background: blue;
+  width: 50em;
+  height: 60em;
 }
