@@ -20,6 +20,7 @@ async function Todo_reg() {
       body: JSON.stringify({
         userName: "한승철",
         content: todoValue,
+        completed: false,
       }),
     });
 
