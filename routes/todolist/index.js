@@ -6,5 +6,6 @@ router.get("/", todolistController.readAll);
 router.get("/:todoId", todolistController.read);
 router.post("/", todolistController.write);
 router.delete("/:todoId", todolistController.delete);
+router.put("/:todoId", todolistController.update);
 
 module.exports = router;

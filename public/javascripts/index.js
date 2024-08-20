@@ -27,23 +27,22 @@ async function Todo_reg() {
       body: JSON.stringify({
         userName: "한승철",
         content: todoValue,
-        date: selectedDate, // 날짜 추가
+        date: selectedDate,
       }),
     });
 
     if (response.ok) {
-      input.value = ""; // 입력 필드 초기화
+      input.value = "";
 
-      // 새로 추가된 항목을 직접 Todofield에 추가
-      const todo = await response.json(); // 서버에서 새로 추가된 todo 항목 받기
+      const todo = await response.json();
       console.log(todo);
 
       // 체크박스와 함께 div 생성
       const div = document.createElement("div");
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
-      checkbox.id = todo._id; // 항목의 _id를 체크박스의 id로 사용
-      checkbox.checked = todo.completed || false; // 서버에서 받은 completed 상태 설정
+      checkbox.id = todo._id;
+      checkbox.checked = todo.completed || false;
 
       const label = document.createElement("label");
       label.htmlFor = todo._id;
@@ -73,8 +72,8 @@ async function Todo_reg() {
           );
 
           if (deleteResponse.ok) {
-            div.remove(); // 삭제 성공 시 div 제거
-            saveCheckboxState(); // 체크 상태 저장
+            div.remove();
+            saveCheckboxState();
           } else {
             console.error("Failed to delete todo.");
           }
@@ -96,7 +95,7 @@ async function loadTodosForDate() {
   const selectedDate = dateInput.value;
 
   if (!selectedDate) {
-    return; // 날짜가 선택되지 않았을 때 함수 종료
+    return;
   }
 
   try {
@@ -108,24 +107,22 @@ async function loadTodosForDate() {
     );
     const data = await response.json();
 
-    // Todofield 초기화
     Todofield.innerHTML = "";
 
-    // 데이터로 체크박스와 레이블 생성
     data.forEach((todo) => {
       const div = document.createElement("div");
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
-      checkbox.id = todo._id; // 항목의 _id를 체크박스의 id로 사용
-      checkbox.checked = todo.completed || false; // 체크 상태 설정 (optional)
+      checkbox.id = todo._id;
+      checkbox.checked = todo.completed || false;
 
       const label = document.createElement("label");
       label.htmlFor = todo._id;
       label.textContent = todo.content;
-      div.className = "content"; // content 클래스 추가
+      div.className = "content";
 
       const btn = document.createElement("button");
-      btn.className = "delete-btn"; // 버튼 클래스 추가
+      btn.className = "delete-btn";
       const img = document.createElement("img");
       img.src = "./images/Trash.svg";
       img.alt = "Trash";
@@ -158,14 +155,11 @@ async function loadTodosForDate() {
 
       Todofield.appendChild(div);
     });
-
-    // 페이지 로드 시 체크 상태를 로컬 스토리지에서 로드
   } catch (error) {
     console.log(error);
   }
 }
 
-// 페이지 로드 시 초기 목록 가져오기
 document.addEventListener("DOMContentLoaded", () => {
   loadTodosForDate(); // 초기 로딩 시 날짜별 투두리스트 로드
 });
