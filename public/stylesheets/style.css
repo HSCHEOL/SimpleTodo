@@ -3,8 +3,11 @@ html {
 }
 
 body {
-  background-color: #dddddd;
+  background: url("https://media.giphy.com/media/4N1FZFE5AGO3qrUGkw/giphy.gif")
+    center center fixed;
+  background-size: cover;
   height: 100%;
+  overflow: hidden;
 }
 
 #main-content {
@@ -16,6 +19,10 @@ body {
   height: 100%;
 }
 
+#main-container {
+  box-shadow: 3vw 0.5vw 30px rgba(0, 0, 0, 0.3);
+}
+
 a {
   color: #00b7ff;
 }
@@ -25,12 +32,15 @@ a {
   flex-direction: column;
   align-items: center;
   width: 40vw;
-  height: 50vw;
+  height: 45vw;
 }
 
 #Sublist {
-  width: 30vw;
-  height: 45vw;
+  width: 10vw;
+  height: 10vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #Title_image {
@@ -60,7 +70,7 @@ a {
   background-color: #f4faff;
   width: 100%;
   position: relative;
-  height: 35vw;
+  height: 28vw;
   border: 2px solid black;
   border-radius: 0 0 30px 30px;
   padding: 1vw;
@@ -170,7 +180,7 @@ input[type="checkbox"]:checked + label {
   background-color: #b8ddff;
   border: 2px solid black;
   border-bottom: none;
-  width: 100%;
+  width: 120%;
   height: 3vw;
   font-size: 2vw;
   color: black; /* 폰트 색상 설정 */
@@ -183,7 +193,7 @@ input[type="checkbox"]:checked + label {
   font-size: 3vw;
   text-align: center;
 
-  width: 100%;
+  width: 120%;
   height: 4vw;
 }
 
@@ -193,14 +203,14 @@ input[type="checkbox"]:checked + label {
   justify-content: center;
   background-color: ##b8ddff; /* 배경색 */
   border: 2px solid black; /* 테두리 */
-
+  height: 100%;
   width: 100%;
 }
 
 #dateInput {
   padding: 8px;
   border: 1px solid #ccc;
-  font-size: 1em;
+  font-size: 1vw;
   color: #333;
   background-color: ##b8ddff;
   cursor: pointer;
