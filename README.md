@@ -27,7 +27,11 @@ Vanilla js를 사용합니다.
 
 ## 시연영상🎬
 
-https://github.com/user-attachments/assets/a7bc5ae1-3204-436b-826a-00a1b4ba4aae
+
+
+https://github.com/user-attachments/assets/11165949-3ab0-489d-ab3c-528785aff50f
+
+
 
 <br>
 
