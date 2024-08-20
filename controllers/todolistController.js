@@ -4,12 +4,31 @@ const mongoose = require("mongoose");
 
 const todo = {
   readAll: async (req, res) => {
-    const todos = await Todo.findAll();
     try {
-      if (!todos.length)
+      // 쿼리 파라미터에서 날짜를 가져옴
+      const { date } = req.query;
+      let query = {};
+
+      // 날짜가 제공된 경우 필터링
+      if (date) {
+        // 날짜를 ISO Date 문자열로 변환
+        const parsedDate = new Date(date);
+
+        // 필터링 조건 설정 (ISO Date 범위)
+        query.date = {
+          $gte: parsedDate,
+          $lt: new Date(parsedDate.getTime() + 24 * 60 * 60 * 1000), // 하루 단위
+        };
+      }
+
+      // 필터링 조건을 기반으로 투두리스트 조회
+      const todos = await Todo.find(query);
+
+      if (!todos.length) {
         return res.status(404).send({
           err: "Todo not found",
         });
+      }
       res.json(todos);
     } catch (err) {
       res.status(500).send(err);

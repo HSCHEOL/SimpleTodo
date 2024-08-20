@@ -4,7 +4,8 @@ const todoSchema = new mongoose.Schema(
   {
     userName: { type: String, required: true },
     content: { type: String, required: true },
-    completed: { type: Boolean, default: false },
+    date: { type: Date, required: true },
+    // completed: { type: Boolean, default: false },
   },
   {
     timestamps: true,

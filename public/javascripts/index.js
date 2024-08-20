@@ -1,13 +1,20 @@
-const button = document.querySelector("button");
-const input = document.querySelector("input");
+const button = document.querySelector("#Reg_btn");
+const input = document.querySelector("#Todoinput");
 const Todofield = document.querySelector("#text_field");
+const dateInput = document.querySelector("#dateInput");
 
 async function Todo_reg() {
   const todoValue = input.value;
+  const selectedDate = dateInput.value;
 
   if (!todoValue.length) {
     alert("Todolist를 입력하세요!");
     return; // 입력값이 없을 때 함수 종료
+  }
+
+  if (!selectedDate) {
+    alert("날짜를 선택하세요!");
+    return; // 날짜가 선택되지 않았을 때 함수 종료
   }
 
   try {
@@ -20,7 +27,7 @@ async function Todo_reg() {
       body: JSON.stringify({
         userName: "한승철",
         content: todoValue,
-        completed: false,
+        date: selectedDate, // 날짜 추가
       }),
     });
 
@@ -36,6 +43,7 @@ async function Todo_reg() {
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.id = todo._id; // 항목의 _id를 체크박스의 id로 사용
+      checkbox.checked = todo.completed || false; // 서버에서 받은 completed 상태 설정
 
       const label = document.createElement("label");
       label.htmlFor = todo._id;
@@ -66,6 +74,7 @@ async function Todo_reg() {
 
           if (deleteResponse.ok) {
             div.remove(); // 삭제 성공 시 div 제거
+            saveCheckboxState(); // 체크 상태 저장
           } else {
             console.error("Failed to delete todo.");
           }
@@ -82,11 +91,21 @@ async function Todo_reg() {
     console.log("error 입니다.", error);
   }
 }
-async function Todo_get() {
+
+async function loadTodosForDate() {
+  const selectedDate = dateInput.value;
+
+  if (!selectedDate) {
+    return; // 날짜가 선택되지 않았을 때 함수 종료
+  }
+
   try {
-    const response = await fetch("http://localhost:3000/todolist", {
-      method: "GET",
-    });
+    const response = await fetch(
+      `http://localhost:3000/todolist?date=${selectedDate}`,
+      {
+        method: "GET",
+      }
+    );
     const data = await response.json();
 
     // Todofield 초기화
@@ -139,10 +158,16 @@ async function Todo_get() {
 
       Todofield.appendChild(div);
     });
+
+    // 페이지 로드 시 체크 상태를 로컬 스토리지에서 로드
   } catch (error) {
     console.log(error);
   }
 }
 
 // 페이지 로드 시 초기 목록 가져오기
-Todo_get();
+document.addEventListener("DOMContentLoaded", () => {
+  loadTodosForDate(); // 초기 로딩 시 날짜별 투두리스트 로드
+});
+
+dateInput.addEventListener("change", loadTodosForDate);

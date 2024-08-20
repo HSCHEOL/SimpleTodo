@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <script src="javascripts/index.js" defer></script>
   </head>
-  <link rel="stylesheet" href="stylesheets/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap"
-    rel="stylesheet"
-  />
-  <script src="javascripts/index.js" defer></script>
   <body>
     <main id="main-content">
       <section id="Todolist">
@@ -39,7 +39,22 @@
           </div>
         </div>
       </section>
-      <section id="Sublist"></section>
+      <section id="Sublist">
+        <section id="date">
+          <header id="date_header">
+            <img
+              src="./images//DateTitle.svg"
+              style="width: 4vw; margin: 1vw"
+            />
+          </header>
+          <div id="date_field">
+            <div id="Date_picker">
+              <label for="dateInput"></label>
+              <input type="date" id="dateInput" onchange="loadTodosForDate()" />
+            </div>
+          </div>
+        </section>
+      </section>
     </main>
   </body>
 </html>
