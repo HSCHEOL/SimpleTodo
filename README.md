@@ -13,13 +13,15 @@ Vanilla js를 사용합니다.
 ## 개발기간
 8월 19일 ~ 8월 20일 (16시간)
 
+<br>
+
 ## 최소기능⚙️
 
 - 할 일 추가
 - 할 일 읽기 (모든 할 일 및 특정 할 일)
 - 할 일 업데이트
 - 할 일 삭제
-  
+
   
   
 ### 추가기능 
@@ -27,8 +29,15 @@ Vanilla js를 사용합니다.
 
 <br>
 
-## 시연영상🎬
+## 기술 스택
 
+- <span style="color: purple;">**Backend:** Node.js, Express.js</span>
+- <span style="color: teal;">**Database:** MongoDB</span>
+- <span style="color: brown;">**Frontend:** HTML, CSS (및 기타 프론트엔드 기술)</span>
+
+<br>
+
+## 시연영상🎬
 
 
 https://github.com/user-attachments/assets/11165949-3ab0-489d-ab3c-528785aff50f
@@ -71,9 +80,5 @@ https://github.com/user-attachments/assets/11165949-3ab0-489d-ab3c-528785aff50f
 
 <br>
 
-## 기술 스택
 
-- <span style="color: purple;">**Backend:** Node.js, Express.js</span>
-- <span style="color: teal;">**Database:** MongoDB</span>
-- <span style="color: brown;">**Frontend:** HTML, CSS (및 기타 프론트엔드 기술)</span>
 
