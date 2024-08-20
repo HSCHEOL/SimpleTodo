@@ -10,6 +10,8 @@ MongoDB를 데이터베이스로 사용하며, Express.js와 Node.js를 백엔�
 Vanilla js를 사용합니다.
 <br><br>
 
+## 개발기간
+8월 19일 ~ 8월 20일 (16시간)
 
 ## 최소기능⚙️
 
