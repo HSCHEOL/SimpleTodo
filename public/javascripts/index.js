@@ -28,6 +28,7 @@ async function Todo_reg() {
 
       // 새로 추가된 항목을 직접 Todofield에 추가
       const todo = await response.json(); // 서버에서 새로 추가된 todo 항목 받기
+      console.log(todo);
 
       // 체크박스와 함께 div 생성
       const div = document.createElement("div");

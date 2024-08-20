@@ -25,7 +25,7 @@ a {
   flex-direction: column;
   align-items: center;
   width: 40vw;
-  height: 45vw;
+  height: 50vw;
 }
 
 #Sublist {
@@ -40,8 +40,9 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 25vw;
+  width: 20vw;
   margin-bottom: 1vw;
+  margin-left: 4vw;
 }
 
 #Todo_header {
@@ -54,6 +55,7 @@ a {
   border: 2px solid black;
   border-bottom: none;
   border-radius: 30px 30px 0 0;
+  padding: 1vw;
 }
 
 #Todo_field {
@@ -63,6 +65,7 @@ a {
   height: 35vw;
   border: 2px solid black;
   border-radius: 0 0 30px 30px;
+  padding: 1vw;
 }
 
 #Input_bar {
