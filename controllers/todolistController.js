@@ -1,5 +1,6 @@
 const express = require("express");
 const Todo = require("../models/todolist.js");
+const mongoose = require("mongoose");
 
 const todo = {
   readAll: async (req, res) => {
@@ -9,7 +10,7 @@ const todo = {
         return res.status(404).send({
           err: "Todo not found",
         });
-      res.send(`find successfully: ${todos}`);
+      res.json(todos);
     } catch (err) {
       res.status(500).send(err);
     }
@@ -27,7 +28,7 @@ const todo = {
           err: "Todo not found",
         });
       // 존재한다면 find successfully와 함께 성공한 객체 출력
-      res.send(`find successfully: ${todo}`);
+      res.json(todo);
     } catch (err) {
       // 서버 오류 발생시 500 status 반환
       res.status(500).send(err);
@@ -36,7 +37,7 @@ const todo = {
   write: async (req, res) => {
     try {
       const result = await Todo.create(req.body);
-      res.send(result);
+      res.json(result);
     } catch (err) {
       res.status(500).send(err);
     }
@@ -44,10 +45,27 @@ const todo = {
   delete: async (req, res) => {
     try {
       const todoId = req.params.todoId;
-      const result = await Todo.delete(todoId);
+
+      // _id가 유효한 ObjectId인지 확인 및 변환
+      if (!mongoose.Types.ObjectId.isValid(todoId)) {
+        return res.status(400).send({ error: "Invalid ID format" });
+      }
+
+      // ObjectId 인스턴스 생성
+      const objectId = new mongoose.Types.ObjectId(todoId);
+
+      // 문서 삭제
+      const result = await Todo.findByIdAndDelete(objectId);
+
+      if (!result) {
+        // 항목이 존재하지 않을 경우 404 오류
+        return res.status(404).send({ error: "Todo not found" });
+      }
+
       res.sendStatus(200);
     } catch (err) {
-      res.status(500).send(err);
+      console.error(`Error during deletion: ${err.message}`);
+      res.status(500).send({ error: "Internal server error" });
     }
   },
 };

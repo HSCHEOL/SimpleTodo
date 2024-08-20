@@ -6,6 +6,12 @@
     <title>Document</title>
   </head>
   <link rel="stylesheet" href="stylesheets/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap"
+    rel="stylesheet"
+  />
   <script src="javascripts/index.js" defer></script>
   <body>
     <main id="main-content">
@@ -20,16 +26,17 @@
               style="height: 50%; margin-left: 1vw"
             />
           </header>
-          <article id="Todo_field">
+          <div id="Todo_field">
+            <article id="text_field"></article>
             <div id="Input_bar">
-              <ul id="todo-list">
-                <!-- 할일 목록이 여기에 추가됩니다 -->
-              </ul>
-
-              <input type="text" placeholder="Todolist를 입력하세요!" />
-              <button onclick="Todo_reg()"><b>등록</b></button>
+              <input
+                type="text"
+                id="Todoinput"
+                placeholder="Todolist를 입력하세요!"
+              />
+              <button id="Reg_btn" onclick="Todo_reg()"><b>등록</b></button>
             </div>
-          </article>
+          </div>
         </div>
       </section>
       <section id="Sublist"></section>
