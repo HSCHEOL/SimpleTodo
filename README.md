@@ -1,4 +1,4 @@
-# [Devcourse]Simple_Todo
+# [Devcourse]SimpleTodo
 
 <h3>데브코스 1차 과제</h3>
 
