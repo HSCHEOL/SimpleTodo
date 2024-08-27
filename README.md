@@ -78,7 +78,5 @@ https://github.com/user-attachments/assets/11165949-3ab0-489d-ab3c-528785aff50f
 - `PUT /todos/:id` - 특정 ID를 가진 할 일을 업데이트합니다.
 - `DELETE /todos/:id` - 특정 ID를 가진 할 일을 삭제합니다.
 
-<br>
-
 
 
